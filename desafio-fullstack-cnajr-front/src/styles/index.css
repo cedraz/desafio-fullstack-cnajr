@@ -1,0 +1,19 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+
+  gap: 50px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+

@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=johndoe
+      - POSTGRES_PASSWORD=randompassword
+      - POSTGRES_DB=desafiofullstackcnajrdb
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+  
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "npx prisma migrate dev && npm run start:dev"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app # Sincroniza os arquivos locais com os do contêiner
+      - /app/node_modules
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M

@@ -1,0 +1,29 @@
+/* Users Form */
+.users-form-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-card {
+  padding: 20px;
+}
+
+#users-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#error-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  margin-bottom: 16px;
+}
+
+.error-span {
+  color: red;
+}
+
